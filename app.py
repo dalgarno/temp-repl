@@ -2,8 +2,6 @@ from flask import Flask
 
 app = Flask(__name__)
 
-dataset = read_dataset(Path(__file__).parent / "data.json")
-
 
 @app.route("/compute", methods=["POST"])
 def compute():
