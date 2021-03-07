@@ -24,3 +24,20 @@ def bmi_to_val(bmi: float) -> BMI:
         return BMI.OBESE
     else:
         return BMI.VERY_OBESE
+
+
+def area_modifier(case_rate: float) -> float:
+    if case_rate < 9.0:
+        return 1.0
+    elif case_rate < 49.0:
+        return 1.1
+    elif case_rate < 99.0:
+        return 1.2
+    elif case_rate < 199.0:
+        return 1.3
+    elif case_rate < 399.0:
+        return 1.5
+    elif case_rate < 799.0:
+        return 1.7
+    else:
+        return 2.0

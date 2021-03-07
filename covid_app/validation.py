@@ -5,7 +5,7 @@ import attr
 
 @attr.s(auto_attribs=True, frozen=True)
 class InputParams:
-    age: str
+    age_group: str
     height: int
     weight: int
     underlying_health_issues: bool
@@ -13,7 +13,7 @@ class InputParams:
 
     def from_dict(d: Dict[str, Any]):
         return InputParams(
-            age=d["age"],
+            age_group=d["age_group"],
             height=d["height"],
             weight=d["weight"],
             underlying_health_issues=d["underlying_health_issues"],

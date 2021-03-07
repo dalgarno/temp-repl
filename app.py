@@ -9,9 +9,15 @@ app = Flask(__name__)
 
 dataset = read_dataset(Path(__file__).parent / "data.json")
 
+BASELINE_RISK_API = "https://dse-test-api.herokuapp.com"
+
 
 @app.route("/compute", methods=["POST"])
 def compute():
+    """
+    Estimate the risk factor of an individual to COVID
+    based on their health characteristics and area.
+    """
 
     body = request.get_json(force=True)
 
@@ -22,8 +28,7 @@ def compute():
 
     bmi = calculate_bmi(height=input_params.height, weight=input_params.weight)
 
-    # TODO:
-    # Finish this method.
+    # TODO: Finish this method.
 
     raise NotImplementedError()
 
