@@ -9,6 +9,7 @@ class InputParams:
     height: int
     weight: int
     underlying_health_issues: bool
+    area_code: str
 
     def from_dict(d: Dict[str, Any]):
         return InputParams(
@@ -16,6 +17,7 @@ class InputParams:
             height=d["height"],
             weight=d["weight"],
             underlying_health_issues=d["underlying_health_issues"],
+            area_code=d["area_code"],
         )
 
 

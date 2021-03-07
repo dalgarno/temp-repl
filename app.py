@@ -3,6 +3,7 @@ from pathlib import Path
 
 from covid_app.dataset import read_dataset
 from covid_app.validation import validate_input_params
+from covid_app.core import calculate_bmi
 
 app = Flask(__name__)
 
@@ -19,7 +20,7 @@ def compute():
     except ValueError as exc:
         return {"message": str(exc)}, 400
 
-    breakpoint()
+    bmi = calculate_bmi(height=input_params.height, weight=input_params.weight)
 
     raise NotImplementedError()
 
@@ -70,6 +71,7 @@ def list_areas():
             },
         ]
     }
+
 
 @app.route("/health")
 def health():
