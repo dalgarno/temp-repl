@@ -1,10 +1,26 @@
-from flask import Flask
+from flask import Flask, request
+from pathlib import Path
+
+from covid_app.dataset import read_dataset
+from covid_app.validation import validate_input_params
 
 app = Flask(__name__)
+
+dataset = read_dataset(Path(__file__).parent / "data.json")
 
 
 @app.route("/compute", methods=["POST"])
 def compute():
+
+    body = request.get_json(force=True)
+
+    try:
+        input_params = validate_input_params(body)
+    except ValueError as exc:
+        return {"message": str(exc)}, 400
+
+    breakpoint()
+
     raise NotImplementedError()
 
 
