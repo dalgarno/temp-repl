@@ -13,7 +13,7 @@ def calculate_bmi(*, height: int, weight: float) -> float:
     return weight / (height / 100) ** 2
 
 
-def bmi_to_val(bmi: float) -> BMI:
+def raw_bmi_to_categorical(bmi: float) -> BMI:
     if bmi < 18.4:
         return BMI.UNDERWEIGHT
     elif bmi < 25:
