@@ -54,3 +54,7 @@ def list_areas():
             },
         ]
     }
+
+@app.route("/health")
+def health():
+    return {"status": "healthy"}
