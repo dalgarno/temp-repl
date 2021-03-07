@@ -26,7 +26,7 @@ def raw_bmi_to_categorical(bmi: float) -> BMI:
         return BMI.VERY_OBESE
 
 
-def area_modifier(case_rate: float) -> float:
+def case_rate_to_area_modifier(case_rate: float) -> float:
     if case_rate < 9.0:
         return 1.0
     elif case_rate < 49.0:
