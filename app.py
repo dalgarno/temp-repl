@@ -22,6 +22,9 @@ def compute():
 
     bmi = calculate_bmi(height=input_params.height, weight=input_params.weight)
 
+    # TODO:
+    # Finish this method.
+
     raise NotImplementedError()
 
 
