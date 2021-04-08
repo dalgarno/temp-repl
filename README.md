@@ -4,7 +4,12 @@
 
 The app estimates the current "risk factor" (a positive floating point number >= 1.0) of an individual in England regarding COVID-19. The value computed will be used in downstream services.
 
-The risk factor comprises two elements: a baseline risk, and an area modifier. These are multiplied together to get the final value.
+The risk factor comprises two elements:
+
+- a baseline risk
+- an area modifier
+
+These are multiplied together to get the final value.
 
 For reference:
 
