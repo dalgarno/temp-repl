@@ -25,6 +25,14 @@ This value is calculated by a separate service which serves an ML classifier mod
 
 Based on BMI, underlying health issues, and age it predicts a risk category from 1 (lowest risk) to 10 (highest risk).
 
+The API's response for a `200 SUCCESS` is like:
+
+```JSON
+{
+  "risk_category": 4
+}
+```
+
 The service's performance is variable, and the underlying model will not be changing as the team responsible is migrating to a new service.
 
 ### Area modifier
