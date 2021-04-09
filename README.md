@@ -140,38 +140,50 @@ requirements.txt ← Python dependencies
 
 ## Running the app
 
-In Repl.it, you can simply click the green _Run_ button, the output will be shown in the _Console_ tab.
+### Locally
 
-Create a virtualenv and install the requirements:
+The app should run on Python3.7+. Feel free to set up as you feel comfortable, but for reference you can:
 
-```bash
-python3 -m venv .venv
-. .venv/bin/activate
-pip3 install -r requirements.txt
-```
-
-Run the app:
+1. Create a virtualenv and install the requirements:
 
 ```bash
-flask run
+$ python3 -m venv .venv
+$ . .venv/bin/activate
+$ pip3 install -r requirements.txt
 ```
 
-In Repl.it you have access to a key value store with a similar API to that of a Python dictionary.
+2. Run the app:
 
-To access it:
+```bash
+$ flask run
+```
+
+3. Run the tests:
+
+```bash
+$ pytest tests
+```
+
+### Repl.it
+
+We also provide the ability to run the app in an online IDE, called [repl.it](https://replit.com/).
+
+You can simply click the green _Run_ button to run the app and the output will be shown in the _Console_ tab.
+
+You can run commands from the _Shell_ tab for example:
+
+```bash
+$ curl localhost:5000/
+```
+
+```bash
+$ pytest tests
+```
+
+You have access to a key value store with a similar API to that of a Python dictionary:
 
 ```Python
 from replit import db
 
 db["key"] = "value"
-```
-
-## Running the tests
-
-In Repl.it, you can run commands from the _Shell_ tab.
-
-You can run all the tests with:
-
-```bash
-pytest tests
 ```
