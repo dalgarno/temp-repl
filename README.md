@@ -1,80 +1,43 @@
 # COVID-19 Risk Factor Estimator 🦠
 
+## Goals 🎯
+
+You'll be working on a basic Flask application. As you'll discover, the app is not ready for production quite yet! The goals are:
+
+1. Talk through the code and explain what it does at a high level.
+2. Run the application, and make a request with `curl`.
+3. Implement the `/compute` endpoint. With tests!
+
+IMPORTANT!
+
+_Don't worry if the endpoint is not completed by the end of the interview. Points of discussion during the interview will affect how much code ends up being written._
+
 ## Overview
 
-The app estimates the current "risk factor" (a positive floating point number >= 1.0) of an individual in England regarding COVID-19. The value computed will be used in downstream services.
+The app estimates a "risk factor" (a positive floating point number >= 1.0) of an individual in England regarding COVID-19. The value computed will be used in downstream services.
 
-The risk factor comprises two elements:
-
-- a baseline risk
-- an area modifier
-
-These are multiplied together to get the final value.
-
-For reference:
+To compute the risk factor:
 
 ```
 risk_factor = baseline_risk * area_modifier
 ```
 
-Note: the risk factor it produces is "for example only", and does not consitute medical advice!
+### Baseline Risk
 
-### Baseline risk
+The baseline risk is an individual's susceptibility, and is retrieved from a separate service, which is documented [here](https://dse-test-api.herokuapp.com).
 
-This value is calculated by a separate service which serves an ML classifier model. The service's API is documented [here](https://dse-test-api.herokuapp.com).
+![risk factor app](./assets/risk_factor_app.png "Risk factor app")
 
-Based on BMI, underlying health issues, and age it predicts a risk category from 1 (lowest risk) to 10 (highest risk).
-
-The API's response for a `200 SUCCESS` is like:
-
-```JSON
-{
-  "risk_category": 4
-}
-```
-
-The service's performance is variable, and the underlying model will not be changing as the team responsible is migrating to a new service.
+The Baseline Risk service's performance is variable, and the underlying model will not be changing as the team responsible is migrating to a new service.
 
 ### Area modifier
 
-The dataset in `data.json` contains the rate of new cases for the current week (assuming the current week is the first week in March!) for each region in England
-[published by the UK government](https://coronavirus.data.gov.uk/).
-
-```javascript
-{
-    "length": 9,
-    "body": [
-      {
-        "date": "2021-03-01",
-        "areaType": "region",
-        "areaCode": "E12000006",
-        "areaName": "East of England",
-        "newCasesBySpecimenDateRollingRate": 61.3
-      },
-      // etc
-    ]
-}
-```
-
-There is a function provided (`case_rate_to_area_modifier`) which converts the case rate to a modifier.
-
----
-
-## Goals 🎯
-
-As you will discover, the app is not ready for production quite yet! The goals are:
-
-1. Talk through the code and explain what it does.
-2. Run the application, and make a request with `curl`.
-3. Implement the `/compute` endpoint. With tests!
-
-Don't worry if the endpoint is not completed by the end of the interview. Points of discussion during the interview will affect how much code ends up being written.
+The area modifier is computed in our app, and is based on the case rate of the region. There is a function provided (`case_rate_to_area_modifier`) which converts the case rate in `data.json` to a modifier.
 
 ## App overview
 
-The API exposes three endpoints:
+The API exposes two endpoints:
 
-- `GET /health` - returns the health of the service.
 - `GET /areas` - returns a list of regions in England.
 - `POST /compute` - given an individual's health characteristics and area, returns a risk factor with regards to COVID-19.
 
@@ -140,6 +103,30 @@ requirements.txt ← Python dependencies
 
 ## Running the app
 
+### Repl.it
+
+We run the app in an online IDE, called [repl.it](https://replit.com/).
+
+You can simply click the green _Run_ button to run the app and the output will be shown in the _Console_ tab.
+
+You can run commands from the _Shell_ tab for example:
+
+```bash
+$ curl localhost:5000/
+```
+
+```bash
+$ pytest tests
+```
+
+You have access to a key value store with a similar API to that of a Python dictionary:
+
+```Python
+from replit import db
+
+db["key"] = "value"
+```
+
 ### Locally
 
 The app should run on Python3.7+. Feel free to set up as you feel comfortable, but for reference you can:
@@ -162,28 +149,4 @@ $ flask run
 
 ```bash
 $ pytest tests
-```
-
-### Repl.it
-
-We also provide the ability to run the app in an online IDE, called [repl.it](https://replit.com/).
-
-You can simply click the green _Run_ button to run the app and the output will be shown in the _Console_ tab.
-
-You can run commands from the _Shell_ tab for example:
-
-```bash
-$ curl localhost:5000/
-```
-
-```bash
-$ pytest tests
-```
-
-You have access to a key value store with a similar API to that of a Python dictionary:
-
-```Python
-from replit import db
-
-db["key"] = "value"
 ```
