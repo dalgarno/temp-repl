@@ -70,7 +70,7 @@ curl http://localhost:5000/areas
 And a caller uses the `POST /compute` API to calculate the risk factor:
 
 ```bash
- curl -X POST localhost:5000/compute --data '{"height": 180, "weight": 75, "underlying_health_issues": false, "age_group": "group_1", "area_code": "E12000007"}'
+curl -X POST localhost:5000/compute --data '{"height": 180, "weight": 75, "underlying_health_issues": false, "age_group": "group_1", "area_code": "E12000007"}'
 ```
 
 Due to the need to keep as much data anonymised as possible, we deal in `age_groups` rather than specific ages.

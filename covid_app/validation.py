@@ -1,6 +1,7 @@
 from typing import Any, Dict
 
 import attr
+import cattr
 
 
 @attr.s(auto_attribs=True, frozen=True)
@@ -10,15 +11,6 @@ class InputParams:
     weight: int
     underlying_health_issues: bool
     area_code: str
-
-    def from_dict(d: Dict[str, Any]):
-        return InputParams(
-            age_group=d["age_group"],
-            height=d["height"],
-            weight=d["weight"],
-            underlying_health_issues=d["underlying_health_issues"],
-            area_code=d["area_code"],
-        )
 
 
 def validate_input_params(data: Any) -> InputParams:
@@ -34,4 +26,4 @@ def validate_input_params(data: Any) -> InputParams:
         formatted_fields = ", ".join(missing_fields)
         raise ValueError(f"Missing required values: {formatted_fields}.")
 
-    return InputParams.from_dict(data)
+    return cattr.structure(data, InputParams)
