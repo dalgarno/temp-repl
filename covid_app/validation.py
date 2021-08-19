@@ -3,8 +3,6 @@ from typing import Any, Dict
 import attr
 import cattr
 
-converter = cattr.Converter()
-
 
 @attr.s(auto_attribs=True, frozen=True)
 class InputParams:
