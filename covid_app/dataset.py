@@ -11,8 +11,6 @@ converter = cattr.Converter()
 
 @attr.s(auto_attribs=True, frozen=True)
 class Row:
-    date: date
-    areaType: str
     areaCode: str
     areaName: str
     newCasesBySpecimenDateRollingRate: float

@@ -1,69 +1,50 @@
 {
-    "length": 9,
-    "body": [
-      {
-        "date": "2021-03-01",
-        "areaType": "region",
-        "areaCode": "E12000006",
-        "areaName": "East of England",
-        "newCasesBySpecimenDateRollingRate": 61.3
-      },
-      {
-        "date": "2021-03-01",
-        "areaType": "region",
-        "areaCode": "E12000007",
-        "areaName": "London",
-        "newCasesBySpecimenDateRollingRate": 49.8
-      },
-      {
-        "date": "2021-03-01",
-        "areaType": "region",
-        "areaCode": "E12000003",
-        "areaName": "Yorkshire and The Humber",
-        "newCasesBySpecimenDateRollingRate": 110.8
-      },
-      {
-        "date": "2021-03-01",
-        "areaType": "region",
-        "areaCode": "E12000004",
-        "areaName": "East Midlands",
-        "newCasesBySpecimenDateRollingRate": 110.5
-      },
-      {
-        "date": "2021-03-01",
-        "areaType": "region",
-        "areaCode": "E12000009",
-        "areaName": "South West",
-        "newCasesBySpecimenDateRollingRate": 40.1
-      },
-      {
-        "date": "2021-03-01",
-        "areaType": "region",
-        "areaCode": "E12000001",
-        "areaName": "North East",
-        "newCasesBySpecimenDateRollingRate": 95.8
-      },
-      {
-        "date": "2021-03-01",
-        "areaType": "region",
-        "areaCode": "E12000005",
-        "areaName": "West Midlands",
-        "newCasesBySpecimenDateRollingRate": 95.2
-      },
-      {
-        "date": "2021-03-01",
-        "areaType": "region",
-        "areaCode": "E12000002",
-        "areaName": "North West",
-        "newCasesBySpecimenDateRollingRate": 95.6
-      },
-      {
-        "date": "2021-03-01",
-        "areaType": "region",
-        "areaCode": "E12000008",
-        "areaName": "South East",
-        "newCasesBySpecimenDateRollingRate": 47.7
-      }
-    ]
-  }
-  
+  "length": 9,
+  "body": [
+    {
+      "areaCode": "E12000006",
+      "areaName": "East of England",
+      "newCasesBySpecimenDateRollingRate": 61.3
+    },
+    {
+      "areaCode": "E12000007",
+      "areaName": "London",
+      "newCasesBySpecimenDateRollingRate": 49.8
+    },
+    {
+      "areaCode": "E12000003",
+      "areaName": "Yorkshire and The Humber",
+      "newCasesBySpecimenDateRollingRate": 110.8
+    },
+    {
+      "areaCode": "E12000004",
+      "areaName": "East Midlands",
+      "newCasesBySpecimenDateRollingRate": 110.5
+    },
+    {
+      "areaCode": "E12000009",
+      "areaName": "South West",
+      "newCasesBySpecimenDateRollingRate": 40.1
+    },
+    {
+      "areaCode": "E12000001",
+      "areaName": "North East",
+      "newCasesBySpecimenDateRollingRate": 95.8
+    },
+    {
+      "areaCode": "E12000005",
+      "areaName": "West Midlands",
+      "newCasesBySpecimenDateRollingRate": 95.2
+    },
+    {
+      "areaCode": "E12000002",
+      "areaName": "North West",
+      "newCasesBySpecimenDateRollingRate": 95.6
+    },
+    {
+      "areaCode": "E12000008",
+      "areaName": "South East",
+      "newCasesBySpecimenDateRollingRate": 47.7
+    }
+  ]
+}
