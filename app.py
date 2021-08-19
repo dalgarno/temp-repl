@@ -3,7 +3,7 @@ from pathlib import Path
 
 from covid_app.dataset import read_dataset
 from covid_app.validation import validate_input_params
-from covid_app.core import calculate_bmi
+from covid_app.core import calculate_bmi, raw_bmi_to_categorical
 
 app = Flask(__name__)
 
@@ -21,17 +21,11 @@ def compute():
 
     body = request.get_json(force=True)
 
-    try:
-        input_params = validate_input_params(body)
-    except ValueError as exc:
-        return {"message": str(exc)}, 400
-
-    bmi = calculate_bmi(height=input_params.height, weight=input_params.weight)
-
     # TODO: Finish this method.
-    # Note: I've spoken to one of the FE engineers and it's not a great experience
-    # to have our endpoint be so slow. Can we speed up or do something about the
-    # baseline risk API?
+
+    # Note: I've spoken to one of the FE engineers and it wouldn't be a
+    # great experience to have our endpoint slow. Can we speed up or do
+    # something about the baseline risk API?
 
     raise NotImplementedError()
 
